@@ -20,12 +20,12 @@ from ghostpost_app import views
 urlpatterns = [
     path('', views.index_view, name='home'),
     path('addpost/', views.add_post, name='addpost'),
-    path('boasts/', views.boasts, name='boasts'),
-    path('roasts/', views.roasts, name='roasts'),
-    path('upvote/<int:post_id>/', views.index_view, name='upvote'),
-    path('downvote/<int:post_id>/', views.index_view, name='downvote'),
-    path('votescore/', views.vote_score, name='votescore'),
-    path('delete/<slug:secret>/', name='delete'),  # extra credit
-    path('private/<slug:secret>/', name='private'), # extra credit
+    path('boasts/', views.boasts_view, name='boasts'),
+    path('roasts/', views.roasts_view, name='roasts'),
+    path('upvote/<int:post_id>/', views.upvote, name='upvote'),
+    path('downvote/<int:post_id>/', views.downvote, name='downvote'),
+    path('votescore/', views.vote_score_view, name='votescore'),
+    # path('delete/<slug:secret>/', name='delete'),  # extra credit
+    # path('private/<slug:secret>/', name='private'), # extra credit
     path('admin/', admin.site.urls),
 ]
