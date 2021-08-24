@@ -1,9 +1,4 @@
 {% include 'navbar.html' %}
-{% if messages %}
-{% for message in messages %}
-<script>alert('{{ message }}')</script>
-{% endfor %}
-{% endif %} 
 <hr>
 {% for post in posts %} 
 <ul>
@@ -17,7 +12,7 @@
     <li>Upvotes: {{post.upvotes}}</li>
     <li>Downvotes: {{post.downvotes}}</li>
     <li>{{post.submission_time}}</li>
-    <li><a href='/upvote/{{post.id}}/'>Upvote</a></li>
-    <li><a href='/downvote/{{post.id}}/'>Downvote</a></li>
+    <li><button><a href='/upvote/{{post.id}}/'>👍 Upvote</a></button></li>
+    <li><button><a href='/downvote/{{post.id}}/'>👎 Downvote</a></button></li>
 </ul>
 {% endfor %}

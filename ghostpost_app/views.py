@@ -4,7 +4,7 @@ from ghostpost_app.forms import AddPostForm
 
 # Create your views here.
 def index_view(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-id')
     return render(request, 'index.html', {'posts': posts})
 
 
@@ -34,13 +34,13 @@ def add_post(request):
     return render(request, 'addpost.html', {'form': form})
 
 def vote_score_view(request):
-    vote_score_view = Post.objects.order_by('upvotes', 'downvotes')
-    return render(request, 'index.html', {'vote_score_view': vote_score_view})
+    posts = sorted(Post.objects.all(), key=lambda post:post.vote_score(), reverse=True)
+    return render(request, 'index.html', {'posts': posts})
 
 def boasts_view(request):
-    boasts = Post.objects.filter(Post.boast_or_roast==True)
-    return render(request, 'index.html', {'boasts': boasts})
+    posts = Post.objects.filter(boast_or_roast=True).order_by('-id')
+    return render(request, 'index.html', {'posts': posts})
 
 def roasts_view(request):
-    roasts = Post.objects.filter(Post.boast_or_roast==False)
-    return render(request, 'index.html', {'roasts': roasts})
+    posts = Post.objects.filter(boast_or_roast=False).order_by('-id')
+    return render(request, 'index.html', {'posts': posts})

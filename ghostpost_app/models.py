@@ -7,10 +7,10 @@ class Post(models.Model):
     text = models.CharField(max_length=280)
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
-    @property
+    submission_time = models.DateTimeField(default=timezone.now)
+    
     def vote_score(self):
         return self.upvotes - self.downvotes
-    submission_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
