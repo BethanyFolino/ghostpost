@@ -1,0 +1,2 @@
+# Ghost Post
+Ghost Post is an app that allows users to anonymously post roasts and boasts that are up to 280 characters in length. Users can filter the posts to see only boasts, only roasts, or posts in descending order by highest vote score. This project was created as part of Kenzie Academy's software engineering program.
